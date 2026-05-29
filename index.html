@@ -285,7 +285,7 @@
 
 <script>
 // ════════════════════════════════════════
-// DATA
+// DATA WITH LOCAL IMAGES
 // ════════════════════════════════════════
 
 const iphones = [
@@ -293,35 +293,35 @@ const iphones = [
     id:"ip1", brand:"Apple", name:"iPhone 16e",
     price:"$499", badge:"promo", stars:4,
     specs:"A18 · 128Go · 6.1\" OLED · USB-C",
-    img:"https://www.apple.com/newsroom/images/2025/02/apple-introduces-iphone-16e/article/Apple-iPhone-16e-hero-250219_big.jpg.large.jpg",
+    img:"images/iphone/iphone-16e.jpg",
     desc:"Le champion du budget 2025. Puce A18, design moderne, USB-C — le meilleur rapport qualité/prix chez Apple."
   },
   {
     id:"ip2", brand:"Apple", name:"iPhone 17",
     price:"$799", badge:"new", stars:5,
     specs:"A19 · 256Go · 6.1\" · 120Hz · 48MP",
-    img:"https://images.macrumors.com/t/QmB3BF4oG7rWBIMvFxZsMq7-L3M=/1600x0/article-new/2025/09/iphone-17-black.jpg",
+    img:"images/iphone/iphone-17.jpg",
     desc:"L'iPhone 2025 par excellence. Puce A19, écran 120Hz, double caméra 48MP, 256Go de base. Parfait équilibre performance/prix."
   },
   {
     id:"ip3", brand:"Apple", name:"iPhone 17 Air",
     price:"$999", badge:"new", stars:5,
     specs:"A19 Pro · 256Go · 6.6\" · 5.6mm · Ultra-fin",
-    img:"https://images.macrumors.com/t/n4K2cNAqJt1OTqMBL3Bly_KYdXk=/1600x0/article-new/2025/09/iphone-17-air.jpg",
+    img:"images/iphone/iphone-17-air.jpg",
     desc:"Le smartphone le plus fin jamais fabriqué par Apple — seulement 5.6mm d'épaisseur. Puce A19 Pro, appareil photo 48MP, autonomie exceptionnelle."
   },
   {
     id:"ip4", brand:"Apple", name:"iPhone 17 Pro",
     price:"$1 099", badge:"new", stars:5,
     specs:"A19 Pro · 256Go · 6.3\" ProMotion · Titane",
-    img:"https://images.macrumors.com/t/1gUq9NRNV_YKFtF_kB3VNFDrxwU=/1600x0/article-new/2025/09/iphone-17-pro-natural-titanium.jpg",
+    img:"images/iphone/iphone-17-pro.jpg",
     desc:"iPhone Pro 2025 avec puce A19 Pro, triple caméra pro, Dynamic Island, Action Button, écran ProMotion 120Hz en titane."
   },
   {
     id:"ip5", brand:"Apple", name:"iPhone 17 Pro Max",
     price:"$1 199", badge:"new", stars:5,
     specs:"A19 Pro · 256Go · 6.9\" · 5x zoom · Titane",
-    img:"https://images.macrumors.com/t/1gUq9NRNV_YKFtF_kB3VNFDrxwU=/1600x0/article-new/2025/09/iphone-17-pro-natural-titanium.jpg",
+    img:"images/iphone/iphone-17-pro-max.jpg",
     desc:"Le meilleur iPhone jamais construit. Écran 6.9\" ProMotion, zoom optique 5x, batterie record 29h, puce A19 Pro et finition titane premium."
   }
 ];
@@ -332,21 +332,21 @@ const hpProducts = [
     id:"hp1", brand:"HP", name:"OmniBook Ultra Flip 14",
     price:"$1 399", badge:"new", stars:5, cat:"omnibook",
     specs:"Intel Core Ultra 7 · OLED 2.8K · 32Go · 1To SSD · 2-en-1",
-    img:"https://ssl-product-images.www8-hp.com/digmedialib/prodimg/unlocked/c09325553.png",
+    img:"images/hp/omnibook-ultra-flip.jpg",
     desc:"Le meilleur laptop HP 2025. Écran OLED 2.8K, processeur Intel Core Ultra 7, design 2-en-1 ultra-premium avec stylet inclus."
   },
   {
     id:"hp2", brand:"HP", name:"OmniBook X 14",
     price:"$1 099", badge:"new", stars:5, cat:"omnibook",
     specs:"Snapdragon X Plus · 16Go · 512Go SSD · Copilot+ PC · 26h",
-    img:"https://ssl-product-images.www8-hp.com/digmedialib/prodimg/unlocked/c08662994.png",
+    img:"images/hp/omnibook-x14.jpg",
     desc:"Autonomie record de 26 heures. Copilot+ PC avec IA intégrée, processeur Snapdragon X Plus, léger et ultra-performant."
   },
   {
     id:"hp3", brand:"HP", name:"OmniBook 7 14\"",
     price:"$799", badge:null, stars:4, cat:"omnibook",
     specs:"Intel Core Ultra 5 · 16Go · 512Go SSD · OLED · 14\"",
-    img:"https://ssl-product-images.www8-hp.com/digmedialib/prodimg/unlocked/c08580745.png",
+    img:"images/hp/omnibook-7.jpg",
     desc:"Successeur du HP Envy. Écran OLED vibrant, performance Intel de dernière génération, finition premium à prix accessible."
   },
   // EliteBook
@@ -354,21 +354,21 @@ const hpProducts = [
     id:"hp4", brand:"HP", name:"EliteBook X G1a 14",
     price:"$1 299", badge:"new", stars:5, cat:"elitebook",
     specs:"AMD Ryzen AI · 32Go · 1To SSD · Sécurité entreprise · AI",
-    img:"https://ssl-product-images.www8-hp.com/digmedialib/prodimg/unlocked/c09068375.png",
+    img:"images/hp/elitebook-x-g1a.jpg",
     desc:"Le laptop pro 2025 par excellence. Processeur AMD Ryzen AI, sécurité biométrique avancée, autonomie longue durée pour les professionnels."
   },
   {
     id:"hp5", brand:"HP", name:"EliteBook 840 G11",
     price:"$999", badge:null, stars:4, cat:"elitebook",
     specs:"Intel Core Ultra 5 · 16Go · 512Go SSD · 14\" IPS · Léger",
-    img:"https://ssl-product-images.www8-hp.com/digmedialib/prodimg/unlocked/c08556536.png",
+    img:"images/hp/elitebook-840-g11.jpg",
     desc:"Polyvalent et fiable pour les pros en déplacement. Sécurité HP Wolf, chassis aluminium résistant, écran anti-reflets 400 nits."
   },
   {
     id:"hp6", brand:"HP", name:"Elite Dragonfly G4",
     price:"$1 599", badge:"hot", stars:5, cat:"elitebook",
     specs:"Intel Core Ultra 7 · 32Go · 1To · 13.5\" OLED · 990g",
-    img:"https://ssl-product-images.www8-hp.com/digmedialib/prodimg/unlocked/c08311060.png",
+    img:"images/hp/elite-dragonfly-g4.jpg",
     desc:"Le laptop pro le plus léger d'HP — 990g seulement. Écran OLED 13.5\", autonomie 24h, la référence pour les cadres et consultants."
   },
   // OMEN Gaming
@@ -376,14 +376,14 @@ const hpProducts = [
     id:"hp7", brand:"HP", name:"OMEN 16 RTX 4060",
     price:"$1 399", badge:"hot", stars:5, cat:"omen",
     specs:"Intel i7-13700H · RTX 4060 · 16Go · 512Go SSD · 165Hz",
-    img:"https://ssl-product-images.www8-hp.com/digmedialib/prodimg/unlocked/c08261001.png",
+    img:"images/hp/omen-16.jpg",
     desc:"Gaming haute performance : RTX 4060, écran 165Hz QHD, refroidissement OMEN Tempest amélioré. Domine tous les jeux AAA en ultra."
   },
   {
     id:"hp8", brand:"HP", name:"OMEN 16 RTX 4070",
     price:"$1 799", badge:"new", stars:5, cat:"omen",
     specs:"Intel i9-13900HX · RTX 4070 · 32Go · 1To SSD · 240Hz",
-    img:"https://ssl-product-images.www8-hp.com/digmedialib/prodimg/unlocked/c08261001.png",
+    img:"images/hp/omen-16-rtx4070.jpg",
     desc:"Pour les joueurs exigeants. RTX 4070, écran 240Hz Full HD, i9 de 13ème génération — zéro compromis sur les performances."
   },
   // Victus
@@ -391,14 +391,14 @@ const hpProducts = [
     id:"hp9", brand:"HP", name:"Victus 15 RTX 3050",
     price:"$699", badge:"promo", stars:4, cat:"victus",
     specs:"AMD Ryzen 5 · RTX 3050 · 8Go · 256Go SSD · 144Hz",
-    img:"https://ssl-product-images.www8-hp.com/digmedialib/prodimg/unlocked/c07941451.png",
+    img:"images/hp/victus-15.jpg",
     desc:"Le gaming accessible. RTX 3050, écran 144Hz, design gaming sans se ruiner. Idéal pour débuter dans le gaming ou les étudiants."
   },
   {
     id:"hp10", brand:"HP", name:"Victus 16 RTX 4050",
     price:"$899", badge:null, stars:4, cat:"victus",
     specs:"Intel Core i5 · RTX 4050 · 16Go · 512Go SSD · 144Hz",
-    img:"https://ssl-product-images.www8-hp.com/digmedialib/prodimg/unlocked/c07941451.png",
+    img:"images/hp/victus-16.jpg",
     desc:"Le sweet-spot gaming 2025. RTX 4050 Ada Lovelace, 16Go de RAM, écran 144Hz — excellent rapport qualité/prix pour le gaming."
   },
   // ZBook
@@ -406,14 +406,14 @@ const hpProducts = [
     id:"hp11", brand:"HP", name:"ZBook Studio G10",
     price:"$2 199", badge:null, stars:5, cat:"zbook",
     specs:"Intel Xeon W · RTX 4000 Ada · 64Go ECC · 2To SSD",
-    img:"https://ssl-product-images.www8-hp.com/digmedialib/prodimg/unlocked/c08261001.png",
+    img:"images/hp/zbook-studio-g10.jpg",
     desc:"Station de travail mobile certifiée ISV. Pour architectes, ingénieurs et créatifs pro. RTX 4000 Ada, 64Go ECC, fiabilité absolue."
   },
   {
     id:"hp12", brand:"HP", name:"ZBook Firefly 14 G10",
     price:"$1 799", badge:null, stars:4, cat:"zbook",
     specs:"Intel Core Ultra 7 · RTX A500 · 32Go · 1To · Léger",
-    img:"https://ssl-product-images.www8-hp.com/digmedialib/prodimg/unlocked/c08261001.png",
+    img:"images/hp/zbook-firefly-g10.jpg",
     desc:"Workstation mobile légère pour professionnels en déplacement. Graphique RTX A500, certifiée pour AutoCAD, Revit et SolidWorks."
   }
 ];
@@ -423,42 +423,42 @@ const macbooks = [
     id:"m1", brand:"Apple", name:"MacBook Air 13\" M4",
     price:"$1 099", badge:"new", stars:5,
     specs:"M4 · 16Go · 256Go SSD · 13.6\" · 24h · Mars 2025",
-    img:"https://www.apple.com/newsroom/images/2025/03/apple-introduces-macbook-air-with-m4/article/Apple-MacBook-Air-M4-hero-250225_big.jpg.large.jpg",
+    img:"images/mac/macbook-air-m4-13.jpg",
     desc:"Le MacBook le plus populaire 2025. Puce M4, 16Go de RAM de série, 24h d'autonomie, Silent — zéro ventilateur. Ultra-léger et ultra-rapide."
   },
   {
     id:"m2", brand:"Apple", name:"MacBook Air 15\" M4",
     price:"$1 299", badge:"new", stars:5,
     specs:"M4 · 16Go · 512Go SSD · 15.3\" · 24h · Mars 2025",
-    img:"https://www.apple.com/newsroom/images/2025/03/apple-introduces-macbook-air-with-m4/article/Apple-MacBook-Air-M4-hero-250225_big.jpg.large.jpg",
+    img:"images/mac/macbook-air-m4-15.jpg",
     desc:"Grand écran 15.3\" Liquid Retina, M4, 16Go RAM, silence total. Parfait pour créatifs et professionnels voulant productivité sans compromis."
   },
   {
     id:"m3", brand:"Apple", name:"MacBook Pro 14\" M5",
     price:"$1 599", badge:"new", stars:5,
     specs:"M5 · 16Go · 512Go SSD · 14.2\" XDR · Oct. 2025",
-    img:"https://www.apple.com/newsroom/images/2024/11/apple-introduces-new-macbook-pro-featuring-m4-family-chips/article/Apple-MacBook-Pro-M4-hero-241028_big.jpg.large.jpg",
+    img:"images/mac/macbook-pro-m5-14.jpg",
     desc:"MacBook Pro le plus abordable avec puce M5 (oct. 2025). Écran Liquid Retina XDR, performances AI boostées, design Space Black ou argent."
   },
   {
     id:"m4", brand:"Apple", name:"MacBook Pro 14\" M5 Pro",
     price:"$2 199", badge:"new", stars:5,
     specs:"M5 Pro · 24Go · 512Go SSD · 14.2\" XDR · Mars 2026",
-    img:"https://www.apple.com/newsroom/images/2024/11/apple-introduces-new-macbook-pro-featuring-m4-family-chips/article/Apple-MacBook-Pro-M4-hero-241028_big.jpg.large.jpg",
+    img:"images/mac/macbook-pro-m5-pro-14.jpg",
     desc:"Puce M5 Pro avec 14-core CPU. Conçu pour l'IA, la vidéo 8K et les workflows professionnels les plus exigeants. Thunderbolt 4 & HDMI."
   },
   {
     id:"m5", brand:"Apple", name:"MacBook Pro 16\" M5 Pro",
     price:"$2 699", badge:"new", stars:5,
     specs:"M5 Pro · 24Go · 512Go SSD · 16.2\" XDR · Mars 2026",
-    img:"https://www.apple.com/newsroom/images/2024/11/apple-introduces-new-macbook-pro-featuring-m4-family-chips/article/Apple-MacBook-Pro-M4-hero-241028_big.jpg.large.jpg",
+    img:"images/mac/macbook-pro-m5-pro-16.jpg",
     desc:"Grand écran 16.2\" XDR, M5 Pro, haut-parleurs 6 drivers. La machine ultime pour les créatifs pro — montage vidéo, 3D, musique."
   },
   {
     id:"m6", brand:"Apple", name:"MacBook Pro 16\" M5 Max",
     price:"$3 899", badge:"hot", stars:5,
     specs:"M5 Max · 48Go · 1To SSD · 16.2\" XDR · Mars 2026",
-    img:"https://www.apple.com/newsroom/images/2024/11/apple-introduces-new-macbook-pro-featuring-m4-family-chips/article/Apple-MacBook-Pro-M4-hero-241028_big.jpg.large.jpg",
+    img:"images/mac/macbook-pro-m5-max-16.jpg",
     desc:"Le sommet absolu de la gamme MacBook Pro. M5 Max, 48Go unified memory, 1To SSD, GPU 40-core. Aucune machine portable ne lui résiste."
   }
 ];
