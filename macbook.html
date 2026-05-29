@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TechZone — MacBook 2020-2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">🍏 TechZone</a>
+    <nav><a href="index.html">Accueil</a><a href="iphone.html">iPhones</a><a href="hp.html">PC HP</a><a href="macbook.html">MacBooks</a><a href="contact.html">Contact</a></nav>
+    <div class="search-wrap"><span class="search-icon">🔍</span><input class="search-input" id="searchInput" type="text" placeholder="Rechercher..."/><div class="search-results" id="searchResults"></div></div>
+    <button class="cart-btn" onclick="toggleCart()">🛒 Panier <span class="cart-count" id="cartCount">0</span></button>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="section-label">Apple Silicon · MacBook 2020 → 2026</div>
+    <div class="section-title">🍏 MacBook <span>personnalisable</span></div>
+    <div class="mac-subtabs" id="macSubtabs">
+      <div class="mac-subtab active" data-filter="all">Tous</div>
+      <div class="mac-subtab" data-filter="air">MacBook Air</div>
+      <div class="mac-subtab" data-filter="pro">MacBook Pro</div>
+      <div class="mac-subtab" data-filter="m1">M1 (2020-2021)</div>
+      <div class="mac-subtab" data-filter="m2">M2 (2022-2023)</div>
+      <div class="mac-subtab" data-filter="m3">M3 (2023-2024)</div>
+      <div class="mac-subtab" data-filter="m4">M4 (2024-2025)</div>
+      <div class="mac-subtab" data-filter="m5">M5 (2025-2026)</div>
+    </div>
+    <div class="products-grid" id="macGrid"></div>
+  </section>
+</main>
+
+<footer><div class="footer-logo">TechZone</div><p>© 2026 TechZone · MacBook</p><p>📞 +243 982 686 531</p></footer>
+
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-img"><img id="modal-img" src="" alt=""/></div>
+    <div class="modal-body">
+      <div class="modal-brand" id="modal-brand"></div>
+      <div class="modal-title" id="modal-title"></div>
+      <div class="modal-specs" id="modal-specs"></div>
+      <div class="modal-price" id="modal-price"></div>
+      <div class="modal-storage" id="modal-storage">
+        <label>💾 Stockage: <select id="storageSelect" onchange="updateMacPrice()"><option value="256">256Go SSD</option><option value="512">512Go SSD (+$200)</option><option value="1024">1To SSD (+$400)</option><option value="2048">2To SSD (+$800)</option></select></label>
+        <label style="margin-left:1rem">🧠 RAM: <select id="ramSelect" onchange="updateMacPrice()"><option value="8">8Go</option><option value="16">16Go (+$200)</option><option value="32">32Go (+$600)</option><option value="64">64Go (+$1200)</option></select></label>
+      </div>
+      <div class="modal-actions"><a id="modal-wa" href="#" target="_blank" class="btn-primary">💬 Commander</a><button class="modal-close" onclick="closeModal()">Fermer</button></div>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script>
+  renderSection(macbooks,'macGrid');
+  setupMacFilters();
+  window.currentMacProduct = null;
+  window.updateMacPrice = function() {
+    if(window.currentMacProduct) {
+      const basePrice = window.currentMacProduct.basePrice;
+      const storage = document.getElementById('storageSelect').value;
+      const ram = document.getElementById('ramSelect').value;
+      let extra = 0;
+      if(storage === '512') extra += 200;
+      if(storage === '1024') extra += 400;
+      if(storage === '2048') extra += 800;
+      if(ram === '16') extra += 200;
+      if(ram === '32') extra += 600;
+      if(ram === '64') extra += 1200;
+      const newPrice = basePrice + extra;
+      document.getElementById('modal-price').textContent = '$' + newPrice.toLocaleString();
+      const msg = `Bonjour, je commande : ${window.currentMacProduct.name} (${document.getElementById('storageSelect').options[document.getElementById('storageSelect').selectedIndex].text}, ${document.getElementById('ramSelect').options[document.getElementById('ramSelect').selectedIndex].text} RAM) - $${newPrice.toLocaleString()}`;
+      document.getElementById('modal-wa').href = `https://wa.me/243982686531?text=${encodeURIComponent(msg)}`;
+    }
+  };
+</script>
+</body>
+</html>

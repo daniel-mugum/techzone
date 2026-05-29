@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TechZone — iPhone · MacBook · HP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <svg width="22" height="22" viewBox="0 0 814 1000">
+        <defs><linearGradient id="appleGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4f8ef7"/><stop offset="100%" style="stop-color:#a78bfa"/></linearGradient></defs>
+        <path fill="url(#appleGrad)" d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76.5 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 383.8-3.8 263.5-3.8 148.2c0-70.9 24.4-136.5 69.7-187.1C117.3 7.5 172.3-17 229.6-17c68.7 0 121.5 43.1 162.3 43.1 38.9 0 100.2-45.6 177.6-45.6 28.3 0 130.3 2.6 198.2 99.2z"/></svg>
+      TechZone
+    </a>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="iphone.html">iPhones</a>
+      <a href="hp.html">PC HP</a>
+      <a href="macbook.html">MacBooks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="search-wrap" id="searchWrap">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" id="searchInput" type="text" placeholder="Rechercher un produit..."/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+    <button class="cart-btn" onclick="toggleCart()">🛒 Panier <span class="cart-count" id="cartCount">0</span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-badge">✦ Modèles 2026 — Stock disponible</div>
+  <h1>La tech de<br/><span>pointe</span>, livrée<br/>chez vous.</h1>
+  <p>iPhone X à iPhone 17, MacBook 2020 à 2026, PC HP OmniBook & OMEN. Authentiques, garantis, prix imbattables.</p>
+  <div class="hero-btns">
+    <a href="#categories" class="btn-primary">Voir les produits</a>
+    <a href="https://wa.me/243982686531" target="_blank" class="btn-secondary">💬 WhatsApp</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">2026</div><div class="stat-label">Derniers modèles</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Authentique</div></div>
+    <div class="stat"><div class="stat-num">24h</div><div class="stat-label">Réponse rapide</div></div>
+  </div>
+</section>
+
+<section class="section" id="categories">
+  <div class="section-label">Nos univers</div>
+  <div class="section-title">Explorer par <span>catégorie</span></div>
+  <div class="cat-grid">
+    <div class="cat-card iphone" onclick="location.href='iphone.html'">
+      <div class="cat-icon">📱</div>
+      <div class="cat-title">iPhone X → 17</div>
+      <div class="cat-desc">Toute la gamme depuis 2017 — standard, Pro, Pro Max, mini.</div>
+      <span class="cat-count">30+ modèles</span>
+    </div>
+    <div class="cat-card hp" onclick="location.href='hp.html'">
+      <div class="cat-icon">💻</div>
+      <div class="cat-title">PC HP 2025-2026</div>
+      <div class="cat-desc">OmniBook, EliteBook, OMEN, Victus, ZBook, Spectre, Dragonfly.</div>
+      <span class="cat-count">25+ modèles</span>
+    </div>
+    <div class="cat-card mac" onclick="location.href='macbook.html'">
+      <div class="cat-icon">🍏</div>
+      <div class="cat-title">MacBook 2020→2026</div>
+      <div class="cat-desc">Air M1→M4, Pro M1→M5, personnalisable RAM/Stockage.</div>
+      <span class="cat-count">25+ modèles</span>
+    </div>
+  </div>
+</section>
+
+<!-- APERÇU DES PRODUITS RÉCENTS -->
+<section class="section">
+  <div class="section-label">Nouveautés</div>
+  <div class="section-title">Derniers <span>arrivages</span></div>
+  <div class="products-grid" id="featuredGrid"></div>
+</section>
+
+<div class="cta-section" id="contact">
+  <div class="cta-text">
+    <h2>Commander par<br/>WhatsApp en 30 sec</h2>
+    <p>Cliquez sur n'importe quel produit puis "Commander" — message pré-rempli.</p>
+  </div>
+  <div class="contact-info">
+    <div class="contact-item"><div class="contact-icon">📞</div><div><div class="contact-label">WhatsApp</div><div class="contact-value">+243 982 686 531</div></div></div>
+    <div class="contact-item"><div class="contact-icon">🕐</div><div><div class="contact-label">Disponibilité</div><div class="contact-value">Lun – Sam · 8h – 20h</div></div></div>
+    <div class="contact-item"><div class="contact-icon">🚚</div><div><div class="contact-label">Livraison</div><div class="contact-value">Rapide & sécurisée</div></div></div>
+    <a href="https://wa.me/243982686531" target="_blank" class="wa-btn">💬 Ouvrir WhatsApp</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">TechZone</div>
+  <p>© 2026 TechZone · iPhone · MacBook · PC HP</p>
+  <p style="color:var(--accent);">📞 +243 982 686 531</p>
+</footer>
+
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal"><div class="modal-img"><img id="modal-img" src="" alt=""/></div><div class="modal-body"><div class="modal-brand" id="modal-brand"></div><div class="modal-title" id="modal-title"></div><div class="modal-specs" id="modal-specs"></div><div class="modal-price" id="modal-price"></div><div class="modal-storage" id="modal-storage" style="margin:1rem 0;"></div><div class="modal-actions"><a id="modal-wa" href="#" target="_blank" class="btn-primary">💬 Commander</a><button class="modal-close" onclick="closeModal()">Fermer</button></div></div></div>
+</div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script>
+  // Afficher les 6 derniers produits sur l'accueil
+  const featured = [...iphones, ...hpProducts, ...macbooks].slice(-6);
+  if(document.getElementById('featuredGrid')) {
+    document.getElementById('featuredGrid').innerHTML = featured.map(renderCard).join('');
+  }
+</script>
+</body>
+</html>
