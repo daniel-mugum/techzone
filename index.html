@@ -1,571 +1,565 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TechZone — iPhone · MacBook · HP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --bg:#080810;--surface:#111118;--surface2:#1a1a24;--border:rgba(255,255,255,0.07);
-      --accent:#4f8ef7;--accent2:#a78bfa;--gold:#f59e0b;--text:#f0f0f5;--muted:#7a7a8c;
-      --green:#34d399;--red:#ef4444;--radius:18px;
-    }
-    *{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    /* ─── HEADER ─── */
-    header{position:sticky;top:0;z-index:200;background:rgba(8,8,16,0.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;height:68px;padding:0 5%;}
-    .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.45rem;letter-spacing:-0.5px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;}
-    nav{display:flex;gap:1.8rem;}
-    nav a{color:var(--muted);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s;}
-    nav a:hover{color:var(--text);}
-    .cart-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:.45rem 1.1rem;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:.88rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:.4rem;}
-    .cart-btn:hover{background:var(--accent);border-color:var(--accent);}
-    .cart-count{background:var(--accent);color:#fff;border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;}
+<title>TechZone — iPhone · MacBook · HP</title>
 
-    /* ─── HERO ─── */
-    .hero{min-height:93vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 5%;position:relative;overflow:hidden;}
-    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 50% 0%,rgba(79,142,247,.18) 0%,transparent 70%),radial-gradient(ellipse 45% 40% at 85% 85%,rgba(167,139,250,.12) 0%,transparent 60%);pointer-events:none;}
-    .hero-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(79,142,247,.12);border:1px solid rgba(79,142,247,.3);color:var(--accent);padding:.35rem 1rem;border-radius:50px;font-size:.75rem;font-weight:600;letter-spacing:.8px;text-transform:uppercase;margin-bottom:1.8rem;animation:fadeUp .6s ease both;}
-    .hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:1.5rem;animation:fadeUp .7s .1s ease both;}
-    .hero h1 span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-    .hero p{color:var(--muted);font-size:1.1rem;max-width:520px;line-height:1.75;margin-bottom:2.5rem;animation:fadeUp .7s .2s ease both;}
-    .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;animation:fadeUp .7s .3s ease both;}
-    .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;padding:.85rem 2rem;border-radius:50px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.95rem;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 0 30px rgba(79,142,247,.35);text-decoration:none;display:inline-block;}
-    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 0 55px rgba(79,142,247,.5);}
-    .btn-secondary{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:.85rem 2rem;border-radius:50px;font-family:'DM Sans',sans-serif;font-weight:500;font-size:.95rem;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;}
-    .btn-secondary:hover{border-color:var(--accent);color:var(--accent);}
-    .hero-stats{display:flex;gap:3rem;margin-top:4rem;animation:fadeUp .7s .45s ease both;}
-    .stat{text-align:center;}
-    .stat-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-    .stat-label{font-size:.78rem;color:var(--muted);margin-top:.2rem;letter-spacing:.5px;}
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 
-    /* ─── SECTION ─── */
-    .section{padding:5rem 5%;}
-    .section-label{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem;}
-    .section-title{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:700;letter-spacing:-1px;margin-bottom:3rem;line-height:1.15;}
-    .section-title span{color:var(--muted);}
+<style>
 
-    /* ─── CATEGORIES GRID ─── */
-    .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-    .cat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2.2rem 1.8rem;cursor:pointer;transition:all .3s;position:relative;overflow:hidden;}
-    .cat-card::after{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s;}
-    .cat-card.iphone::after{background:radial-gradient(circle at top right,rgba(79,142,247,.13),transparent 70%);}
-    .cat-card.hp::after{background:radial-gradient(circle at top right,rgba(245,158,11,.11),transparent 70%);}
-    .cat-card.mac::after{background:radial-gradient(circle at top right,rgba(167,139,250,.13),transparent 70%);}
-    .cat-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.14);}
-    .cat-card:hover::after{opacity:1;}
-    .cat-icon{font-size:2.8rem;margin-bottom:1rem;}
-    .cat-title{font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:700;margin-bottom:.4rem;}
-    .cat-desc{font-size:.84rem;color:var(--muted);line-height:1.65;}
-    .cat-count{margin-top:1rem;font-size:.75rem;font-weight:700;padding:.3rem .85rem;border-radius:50px;display:inline-block;letter-spacing:.5px;}
-    .iphone .cat-count{background:rgba(79,142,247,.15);color:var(--accent);}
-    .hp .cat-count{background:rgba(245,158,11,.15);color:var(--gold);}
-    .mac .cat-count{background:rgba(167,139,250,.15);color:var(--accent2);}
+:root{
+--bg:#080810;
+--surface:#111118;
+--surface2:#1a1a24;
+--border:rgba(255,255,255,.08);
 
-    /* ─── TABS ─── */
-    .tabs{display:flex;gap:.5rem;margin-bottom:2.5rem;flex-wrap:wrap;}
-    .tab{background:var(--surface2);border:1px solid var(--border);color:var(--muted);padding:.5rem 1.2rem;border-radius:50px;font-size:.85rem;font-weight:500;cursor:pointer;transition:all .2s;}
-    .tab.active,.tab:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
-    .tab.hp-tab.active,.tab.hp-tab:hover{background:var(--gold);border-color:var(--gold);color:#000;}
-    .tab.mac-tab.active,.tab.mac-tab:hover{background:var(--accent2);border-color:var(--accent2);color:#fff;}
+--accent:#4f8ef7;
+--accent2:#a78bfa;
+--gold:#f59e0b;
 
-    /* ─── HP SUB-TABS ─── */
-    .hp-subtabs{display:none;gap:.5rem;margin-bottom:2rem;flex-wrap:wrap;}
-    .hp-subtabs.visible{display:flex;}
-    .subtab{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.25);color:var(--gold);padding:.4rem 1rem;border-radius:50px;font-size:.8rem;font-weight:600;cursor:pointer;transition:all .2s;}
-    .subtab.active,.subtab:hover{background:var(--gold);color:#000;}
+--text:#f2f2f7;
+--muted:#8a8a99;
 
-    /* ─── PRODUCTS ─── */
-    .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.5rem;}
-    .product-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .3s;cursor:pointer;animation:fadeUp .4s ease both;}
-    .product-card:hover{transform:translateY(-5px);border-color:rgba(79,142,247,.4);box-shadow:0 24px 60px rgba(0,0,0,.45);}
-    .product-img-wrap{background:var(--surface2);height:210px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-    .product-img-wrap img{width:100%;height:100%;object-fit:contain;padding:1rem;transition:transform .3s;}
-    .product-card:hover .product-img-wrap img{transform:scale(1.06);}
-    .product-img-wrap .emoji-img{font-size:5rem;}
-    .badge{position:absolute;top:.8rem;left:.8rem;font-size:.68rem;font-weight:700;padding:.25rem .65rem;border-radius:50px;text-transform:uppercase;letter-spacing:.5px;}
-    .badge-new{background:var(--green);color:#000;}
-    .badge-promo{background:var(--red);color:#fff;}
-    .badge-hot{background:var(--gold);color:#000;}
-    .product-info{padding:1.2rem 1.3rem 1.4rem;}
-    .product-brand{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem;}
-    .product-name{font-family:'Syne',sans-serif;font-size:1.02rem;font-weight:700;margin-bottom:.4rem;line-height:1.3;}
-    .product-specs{font-size:.78rem;color:var(--muted);margin-bottom:.6rem;line-height:1.5;}
-    .stars{color:var(--gold);font-size:.8rem;}
-    .price-row{display:flex;align-items:center;justify-content:space-between;margin-top:.9rem;}
-    .price{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--accent);}
-    .price-old{font-size:.82rem;color:var(--muted);text-decoration:line-through;margin-left:.35rem;}
-    .add-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text);width:38px;height:38px;border-radius:50%;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;}
-    .add-btn:hover{background:var(--accent);border-color:var(--accent);}
+--green:#34d399;
+--red:#ef4444;
 
-    /* ─── CONTACT ─── */
-    .cta-section{margin:2rem 5% 5rem;background:linear-gradient(135deg,rgba(79,142,247,.1),rgba(167,139,250,.08));border:1px solid rgba(79,142,247,.18);border-radius:24px;padding:4rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
-    .cta-text h2{font-family:'Syne',sans-serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;letter-spacing:-.5px;margin-bottom:1rem;}
-    .cta-text p{color:var(--muted);line-height:1.75;}
-    .contact-info{display:flex;flex-direction:column;gap:1rem;}
-    .contact-item{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:.9rem 1.2rem;}
-    .contact-icon{font-size:1.4rem;}
-    .contact-label{font-size:.72rem;color:var(--muted);}
-    .contact-value{font-weight:600;font-size:.95rem;}
-    .wa-btn{display:inline-flex;align-items:center;gap:.5rem;background:#25d366;color:#fff;padding:.75rem 1.6rem;border-radius:50px;font-weight:700;font-size:.95rem;text-decoration:none;transition:all .2s;width:fit-content;margin-top:.3rem;}
-    .wa-btn:hover{transform:translateY(-2px);box-shadow:0 10px 35px rgba(37,211,102,.4);}
+--radius:22px;
+}
 
-    /* ─── FOOTER ─── */
-    footer{border-top:1px solid var(--border);padding:2.2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
-    .footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-    footer p{color:var(--muted);font-size:.82rem;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-    /* ─── MODAL ─── */
-    .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(10px);z-index:300;align-items:center;justify-content:center;padding:1rem;}
-    .modal-overlay.active{display:flex;}
-    .modal{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:0;max-width:500px;width:100%;animation:fadeUp .3s ease both;overflow:hidden;}
-    .modal-img{background:var(--surface2);height:200px;display:flex;align-items:center;justify-content:center;}
-    .modal-img img{height:100%;width:100%;object-fit:contain;padding:1rem;}
-    .modal-body{padding:1.8rem;}
-    .modal-brand{font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem;}
-    .modal-title{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:800;margin-bottom:.5rem;}
-    .modal-specs{font-size:.85rem;color:var(--muted);margin-bottom:1rem;line-height:1.6;}
-    .modal-price{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--accent);margin-bottom:1.5rem;}
-    .modal-actions{display:flex;gap:.8rem;flex-wrap:wrap;}
-    .modal-close{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:.7rem 1.4rem;border-radius:50px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.9rem;transition:all .2s;}
-    .modal-close:hover{border-color:rgba(255,255,255,.2);}
+body{
+font-family:'DM Sans',sans-serif;
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+}
 
-    /* ─── TOAST ─── */
-    .toast{position:fixed;bottom:2rem;right:2rem;background:var(--green);color:#000;padding:.75rem 1.4rem;border-radius:50px;font-weight:700;font-size:.88rem;z-index:400;animation:toastIn .3s ease both;display:flex;align-items:center;gap:.5rem;}
-    @keyframes toastIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+html{
+scroll-behavior:smooth;
+}
 
-    /* ─── ANIMATIONS ─── */
-    @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+/* HEADER */
 
-    /* ─── RESPONSIVE ─── */
-    @media(max-width:900px){.cat-grid{grid-template-columns:repeat(2,1fr);}.cta-section{grid-template-columns:1fr;}.hero-stats{gap:1.5rem;}nav{display:none;}}
-    @media(max-width:540px){.cat-grid{grid-template-columns:1fr;}.hero h1{letter-spacing:-1px;}}
-  </style>
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(8,8,16,.88);
+backdrop-filter:blur(25px);
+border-bottom:1px solid var(--border);
+}
+
+.header-inner{
+height:70px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 5%;
+}
+
+.logo{
+font-family:'Syne',sans-serif;
+font-size:1.5rem;
+font-weight:800;
+text-decoration:none;
+background:linear-gradient(135deg,var(--accent),var(--accent2));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+nav{
+display:flex;
+gap:1.5rem;
+}
+
+nav a{
+text-decoration:none;
+color:var(--muted);
+font-size:.9rem;
+transition:.2s;
+}
+
+nav a:hover{
+color:white;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:4rem 5%;
+position:relative;
+overflow:hidden;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(rgba(8,8,16,.72),rgba(8,8,16,.92)),
+url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1974&auto=format&fit=crop') center/cover no-repeat;
+
+z-index:-1;
+}
+
+.hero-badge{
+padding:.45rem 1rem;
+border-radius:50px;
+background:rgba(79,142,247,.15);
+border:1px solid rgba(79,142,247,.3);
+color:var(--accent);
+font-size:.75rem;
+font-weight:700;
+margin-bottom:1.7rem;
+}
+
+.hero h1{
+font-family:'Syne',sans-serif;
+font-size:clamp(3rem,8vw,6rem);
+font-weight:800;
+line-height:1.05;
+letter-spacing:-3px;
+margin-bottom:1.5rem;
+}
+
+.hero h1 span{
+background:linear-gradient(135deg,var(--accent),var(--accent2));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+max-width:650px;
+color:var(--muted);
+line-height:1.8;
+font-size:1.05rem;
+margin-bottom:2.2rem;
+}
+
+.hero-btns{
+display:flex;
+gap:1rem;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.btn-primary{
+background:linear-gradient(135deg,var(--accent),var(--accent2));
+padding:.95rem 2rem;
+border-radius:50px;
+text-decoration:none;
+color:white;
+font-weight:700;
+transition:.25s;
+box-shadow:0 10px 45px rgba(79,142,247,.3);
+}
+
+.btn-primary:hover{
+transform:translateY(-3px);
+}
+
+.btn-secondary{
+padding:.95rem 2rem;
+border-radius:50px;
+text-decoration:none;
+color:white;
+border:1px solid var(--border);
+background:var(--surface2);
+transition:.25s;
+}
+
+.btn-secondary:hover{
+border-color:var(--accent);
+color:var(--accent);
+}
+
+/* SECTION */
+
+.section{
+padding:5rem 5%;
+}
+
+.section-label{
+font-size:.72rem;
+font-weight:700;
+letter-spacing:2px;
+text-transform:uppercase;
+color:var(--accent);
+margin-bottom:.6rem;
+}
+
+.section-title{
+font-family:'Syne',sans-serif;
+font-size:clamp(2rem,4vw,3rem);
+margin-bottom:3rem;
+}
+
+.section-title span{
+color:var(--muted);
+}
+
+/* PRODUCTS */
+
+.products-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+gap:1.5rem;
+}
+
+.product-card{
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:var(--radius);
+overflow:hidden;
+transition:.3s;
+}
+
+.product-card:hover{
+transform:translateY(-7px);
+border-color:rgba(79,142,247,.5);
+box-shadow:0 25px 60px rgba(0,0,0,.5);
+}
+
+.product-img-wrap{
+height:260px;
+overflow:hidden;
+background:linear-gradient(145deg,#1a1a24,#101018);
+display:flex;
+align-items:center;
+justify-content:center;
+padding: 1rem;
+}
+
+.product-img-wrap img{
+width:100%;
+height:100%;
+object-fit:contain;
+transition:.4s;
+filter:drop-shadow(0 20px 30px rgba(0,0,0,.6));
+}
+
+.product-card:hover img{
+transform:scale(1.06);
+}
+
+.product-info{
+padding:1.3rem;
+}
+
+.product-brand{
+font-size:.72rem;
+font-weight:700;
+letter-spacing:2px;
+text-transform:uppercase;
+color:var(--muted);
+margin-bottom:.4rem;
+}
+
+.product-name{
+font-family:'Syne',sans-serif;
+font-size:1.1rem;
+font-weight:700;
+margin-bottom:.4rem;
+}
+
+.product-specs{
+font-size:.85rem;
+color:var(--muted);
+line-height:1.6;
+margin-bottom:.8rem;
+}
+
+.price-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.price{
+font-size:1.35rem;
+font-weight:800;
+font-family:'Syne',sans-serif;
+color:var(--accent);
+}
+
+.buy-btn{
+background:linear-gradient(135deg,var(--accent),var(--accent2));
+border:none;
+color:white;
+padding:.7rem 1rem;
+border-radius:12px;
+cursor:pointer;
+font-weight:700;
+}
+
+/* FOOTER */
+
+footer{
+padding:3rem 5%;
+border-top:1px solid var(--border);
+text-align:center;
+color:var(--muted);
+margin-top:4rem;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+nav{
+display:none;
+}
+
+.hero h1{
+letter-spacing:-1px;
+}
+
+}
+
+</style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
-  <div class="header-inner">
-    <a href="#" class="logo">⚡ TechZone</a>
-    <nav>
-      <a href="#categories">Catégories</a>
-      <a href="#iphones">iPhones</a>
-      <a href="#hp">PC HP</a>
-      <a href="#macbooks">MacBooks</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="cart-btn" onclick="toggleCart()">
-      🛒 Panier <span class="cart-count" id="cartCount">0</span>
-    </button>
-  </div>
+<div class="header-inner">
+
+<a href="#" class="logo">⚡ TechZone</a>
+
+<nav>
+<a href="#iphones">iPhones</a>
+<a href="#hp">HP</a>
+<a href="#macbooks">MacBooks</a>
+</nav>
+
+</div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">✦ Modèles 2025 — Stock disponible</div>
-  <h1>La tech de<br/><span>pointe</span>, livrée<br/>chez vous.</h1>
-  <p>iPhone 17, MacBook Air M4, MacBook Pro M5, PC HP OmniBook & OMEN. Authentiques, garantis, prix imbattables.</p>
-  <div class="hero-btns">
-    <a href="#categories" class="btn-primary">Voir les produits</a>
-    <a href="https://wa.me/243982686451" target="_blank" class="btn-secondary">💬 WhatsApp</a>
-  </div>
-  <div class="hero-stats">
-    <div class="stat"><div class="stat-num">2025</div><div class="stat-label">Derniers modèles</div></div>
-    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Authentique</div></div>
-    <div class="stat"><div class="stat-num">24h</div><div class="stat-label">Réponse rapide</div></div>
-  </div>
-</section>
 
-<!-- CATEGORIES -->
-<section class="section" id="categories">
-  <div class="section-label">Nos univers</div>
-  <div class="section-title">Explorer par <span>catégorie</span></div>
-  <div class="cat-grid">
-    <div class="cat-card iphone" onclick="scrollTo('iphones')">
-      <div class="cat-icon">📱</div>
-      <div class="cat-title">iPhone 2025</div>
-      <div class="cat-desc">iPhone 17, iPhone 17 Air, iPhone 17 Pro & Pro Max. La gamme A19 complète.</div>
-      <span class="cat-count">5 modèles</span>
-    </div>
-    <div class="cat-card hp" onclick="scrollTo('hp')">
-      <div class="cat-icon">💻</div>
-      <div class="cat-title">PC HP 2025</div>
-      <div class="cat-desc">OmniBook, EliteBook, OMEN, ZBook, Victus. 4 catégories pour chaque usage.</div>
-      <span class="cat-count">12 modèles</span>
-    </div>
-    <div class="cat-card mac" onclick="scrollTo('macbooks')">
-      <div class="cat-icon">🍎</div>
-      <div class="cat-title">MacBook 2025</div>
-      <div class="cat-desc">MacBook Air M4 et MacBook Pro M5 / M5 Pro / M5 Max — Apple Silicon ultime.</div>
-      <span class="cat-count">6 modèles</span>
-    </div>
-  </div>
-</section>
-
-<!-- IPHONE SECTION -->
-<section class="section" id="iphones">
-  <div class="section-label">Apple · Septembre 2025</div>
-  <div class="section-title">📱 iPhone <span>2025</span></div>
-  <div class="products-grid" id="iphoneGrid"></div>
-</section>
-
-<!-- HP SECTION -->
-<section class="section" id="hp">
-  <div class="section-label">Hewlett-Packard · 2025</div>
-  <div class="section-title">💻 PC HP — <span>par catégorie</span></div>
-  <div class="hp-subtabs visible" id="hpSubtabs">
-    <div class="subtab active" onclick="filterHP('all',this)">Tous</div>
-    <div class="subtab" onclick="filterHP('omnibook',this)">OmniBook</div>
-    <div class="subtab" onclick="filterHP('elitebook',this)">EliteBook</div>
-    <div class="subtab" onclick="filterHP('omen',this)">OMEN Gaming</div>
-    <div class="subtab" onclick="filterHP('victus',this)">Victus</div>
-    <div class="subtab" onclick="filterHP('zbook',this)">ZBook Pro</div>
-  </div>
-  <div class="products-grid" id="hpGrid"></div>
-</section>
-
-<!-- MACBOOK SECTION -->
-<section class="section" id="macbooks">
-  <div class="section-label">Apple · 2025</div>
-  <div class="section-title">🍎 MacBook <span>Air M4 & Pro M5</span></div>
-  <div class="products-grid" id="macGrid"></div>
-</section>
-
-<!-- CONTACT -->
-<div class="cta-section" id="contact">
-  <div class="cta-text">
-    <h2>Commander par<br/>WhatsApp en 30 sec</h2>
-    <p>Cliquez sur n'importe quel produit puis "Commander" — un message WhatsApp pré-rempli s'ouvre avec le nom et le prix du produit. Notre équipe répond rapidement.</p>
-  </div>
-  <div class="contact-info">
-    <div class="contact-item">
-      <div class="contact-icon">📞</div>
-      <div><div class="contact-label">Téléphone / WhatsApp</div><div class="contact-value">+243 982 686 451</div></div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-icon">🕐</div>
-      <div><div class="contact-label">Disponibilité</div><div class="contact-value">Lun – Sam · 8h – 20h</div></div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-icon">🚚</div>
-      <div><div class="contact-label">Livraison</div><div class="contact-value">Rapide & sécurisée</div></div>
-    </div>
-    <a href="https://wa.me/243982686451" target="_blank" class="wa-btn">💬 Ouvrir WhatsApp</a>
-  </div>
+<div class="hero-badge">
+✦ Collection Premium 2025
 </div>
 
-<!-- FOOTER -->
+<h1>
+La tech<br>
+<span>haut de gamme</span><br>
+commence ici.
+</h1>
+
+<p>
+iPhone 17, MacBook M5, HP OMEN, EliteBook et plus encore.
+Produits authentiques, livraison rapide et design premium.
+</p>
+
+<div class="hero-btns">
+<a href="#iphones" class="btn-primary">Voir les produits</a>
+
+<a href="https://wa.me/243982686451" class="btn-secondary">
+WhatsApp
+</a>
+</div>
+
+</section>
+
+<!-- IPHONES -->
+
+<section class="section" id="iphones">
+
+<div class="section-label">APPLE 2025</div>
+
+<div class="section-title">
+📱 iPhone <span>17 Series</span>
+</div>
+
+<div class="products-grid">
+
+<div class="product-card">
+<div class="product-img-wrap">
+  <!-- iPhone 17 Pro Max — image officielle via CDN GSMArena -->
+  <img
+    src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-17-pro-max-1.jpg"
+    alt="iPhone 17 Pro Max"
+    onerror="this.onerror=null;this.src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-17-pro-select-202509?wid=470&hei=556&fmt=jpeg&qlt=90&.v=1725925644052'">
+</div>
+<div class="product-info">
+  <div class="product-brand">Apple</div>
+  <div class="product-name">iPhone 17 Pro Max</div>
+  <div class="product-specs">A19 Pro · 256Go · Titanium · 120Hz</div>
+  <div class="price-row">
+    <div class="price">$1199</div>
+    <button class="buy-btn">Commander</button>
+  </div>
+</div>
+</div>
+
+<div class="product-card">
+<div class="product-img-wrap">
+  <!-- iPhone 17 Air — image officielle via CDN Apple Store -->
+  <img
+    src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-air-select-202509?wid=470&hei=556&fmt=jpeg&qlt=90&.v=1725925644052"
+    alt="iPhone 17 Air"
+    onerror="this.onerror=null;this.src='https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-air-1.jpg'">
+</div>
+<div class="product-info">
+  <div class="product-brand">Apple</div>
+  <div class="product-name">iPhone 17 Air</div>
+  <div class="product-specs">Ultra-fin · A19 · OLED · USB-C</div>
+  <div class="price-row">
+    <div class="price">$999</div>
+    <button class="buy-btn">Commander</button>
+  </div>
+</div>
+</div>
+
+<div class="product-card">
+<div class="product-img-wrap">
+  <!-- iPhone 17 standard -->
+  <img
+    src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-17-1.jpg"
+    alt="iPhone 17"
+    onerror="this.onerror=null;this.src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-17-select-202509?wid=470&hei=556&fmt=jpeg&qlt=90'">
+</div>
+<div class="product-info">
+  <div class="product-brand">Apple</div>
+  <div class="product-name">iPhone 17</div>
+  <div class="product-specs">A19 · 128Go · Dynamic Island · 60Hz</div>
+  <div class="price-row">
+    <div class="price">$799</div>
+    <button class="buy-btn">Commander</button>
+  </div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- HP -->
+
+<section class="section" id="hp">
+
+<div class="section-label">HP 2025</div>
+
+<div class="section-title">
+💻 HP <span>Gaming & Pro</span>
+</div>
+
+<div class="products-grid">
+
+<div class="product-card">
+<div class="product-img-wrap">
+  <!-- HP OMEN 16 — image officielle HP -->
+  <img
+    src="https://ssl-product-images.www8-hp.com/digmedialib/prodimg/knowledgebase/c08781095.png"
+    alt="HP OMEN RTX 4070"
+    onerror="this.onerror=null;this.src='https://www.hp.com/h20195/v2/getpdf.aspx/c08781095.pdf'">
+</div>
+<div class="product-info">
+  <div class="product-brand">HP</div>
+  <div class="product-name">OMEN RTX 4070</div>
+  <div class="product-specs">i9 · RTX 4070 · 32Go RAM · 240Hz</div>
+  <div class="price-row">
+    <div class="price">$1799</div>
+    <button class="buy-btn">Commander</button>
+  </div>
+</div>
+</div>
+
+<div class="product-card">
+<div class="product-img-wrap">
+  <!-- HP EliteBook G11 — image officielle HP -->
+  <img
+    src="https://ssl-product-images.www8-hp.com/digmedialib/prodimg/knowledgebase/c08379534.png"
+    alt="HP EliteBook G11"
+    onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1541807084-5c52b6b3adef?q=80&w=600&auto=format&fit=crop'">
+</div>
+<div class="product-info">
+  <div class="product-brand">HP</div>
+  <div class="product-name">EliteBook G11</div>
+  <div class="product-specs">Intel Ultra 7 · 1To SSD · OLED</div>
+  <div class="price-row">
+    <div class="price">$1299</div>
+    <button class="buy-btn">Commander</button>
+  </div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- MACBOOK -->
+
+<section class="section" id="macbooks">
+
+<div class="section-label">APPLE SILICON</div>
+
+<div class="section-title">
+🍎 MacBook <span>M5 Series</span>
+</div>
+
+<div class="products-grid">
+
+<div class="product-card">
+<div class="product-img-wrap">
+  <!-- MacBook Pro M5 Max — Apple Store CDN officiel -->
+  <img
+    src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16-spaceback-select-202501?wid=600&hei=510&fmt=jpeg&qlt=90&.v=1736870229931"
+    alt="MacBook Pro M5 Max"
+    onerror="this.onerror=null;this.src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spaceback-select-202310?wid=600&hei=510&fmt=jpeg&qlt=90'">
+</div>
+<div class="product-info">
+  <div class="product-brand">Apple</div>
+  <div class="product-name">MacBook Pro M5 Max</div>
+  <div class="product-specs">48Go RAM · 1To SSD · XDR Display</div>
+  <div class="price-row">
+    <div class="price">$3899</div>
+    <button class="buy-btn">Commander</button>
+  </div>
+</div>
+</div>
+
+<div class="product-card">
+<div class="product-img-wrap">
+  <!-- MacBook Air M4 — Apple Store CDN officiel -->
+  <img
+    src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mba13-m4-skyblue-select-202503?wid=600&hei=510&fmt=jpeg&qlt=90&.v=1741405585500"
+    alt="MacBook Air M4"
+    onerror="this.onerror=null;this.src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mba13-skyblue-select-202503?wid=600&hei=510&fmt=jpeg&qlt=90'">
+</div>
+<div class="product-info">
+  <div class="product-brand">Apple</div>
+  <div class="product-name">MacBook Air M4</div>
+  <div class="product-specs">16Go · 512Go SSD · 24h autonomie</div>
+  <div class="price-row">
+    <div class="price">$1299</div>
+    <button class="buy-btn">Commander</button>
+  </div>
+</div>
+</div>
+
+</div>
+
+</section>
+
 <footer>
-  <div class="footer-logo">⚡ TechZone</div>
-  <p>© 2025 TechZone · iPhone · MacBook · PC HP</p>
-  <p style="color:var(--accent);">📞 +243 982 686 451</p>
+⚡ TechZone © 2025 — Tous droits réservés
 </footer>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
-  <div class="modal">
-    <div class="modal-img"><img id="modal-img" src="" alt=""/></div>
-    <div class="modal-body">
-      <div class="modal-brand" id="modal-brand"></div>
-      <div class="modal-title" id="modal-title"></div>
-      <div class="modal-specs" id="modal-specs"></div>
-      <div class="modal-price" id="modal-price"></div>
-      <div class="modal-actions">
-        <a id="modal-wa" href="#" target="_blank" class="btn-primary">💬 Commander sur WhatsApp</a>
-        <button class="modal-close" onclick="closeModal()">✕ Fermer</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-// ════════════════════════════════════════
-// DATA WITH LOCAL IMAGES
-// ════════════════════════════════════════
-
-const iphones = [
-  {
-    id:"ip1", brand:"Apple", name:"iPhone 16e",
-    price:"$499", badge:"promo", stars:4,
-    specs:"A18 · 128Go · 6.1\" OLED · USB-C",
-    img:"images/iphone/iphone-16e.jpg",
-    desc:"Le champion du budget 2025. Puce A18, design moderne, USB-C — le meilleur rapport qualité/prix chez Apple."
-  },
-  {
-    id:"ip2", brand:"Apple", name:"iPhone 17",
-    price:"$799", badge:"new", stars:5,
-    specs:"A19 · 256Go · 6.1\" · 120Hz · 48MP",
-    img:"images/iphone/iphone-17.jpg",
-    desc:"L'iPhone 2025 par excellence. Puce A19, écran 120Hz, double caméra 48MP, 256Go de base. Parfait équilibre performance/prix."
-  },
-  {
-    id:"ip3", brand:"Apple", name:"iPhone 17 Air",
-    price:"$999", badge:"new", stars:5,
-    specs:"A19 Pro · 256Go · 6.6\" · 5.6mm · Ultra-fin",
-    img:"images/iphone/iphone-17-air.jpg",
-    desc:"Le smartphone le plus fin jamais fabriqué par Apple — seulement 5.6mm d'épaisseur. Puce A19 Pro, appareil photo 48MP, autonomie exceptionnelle."
-  },
-  {
-    id:"ip4", brand:"Apple", name:"iPhone 17 Pro",
-    price:"$1 099", badge:"new", stars:5,
-    specs:"A19 Pro · 256Go · 6.3\" ProMotion · Titane",
-    img:"images/iphone/iphone-17-pro.jpg",
-    desc:"iPhone Pro 2025 avec puce A19 Pro, triple caméra pro, Dynamic Island, Action Button, écran ProMotion 120Hz en titane."
-  },
-  {
-    id:"ip5", brand:"Apple", name:"iPhone 17 Pro Max",
-    price:"$1 199", badge:"new", stars:5,
-    specs:"A19 Pro · 256Go · 6.9\" · 5x zoom · Titane",
-    img:"images/iphone/iphone-17-pro-max.jpg",
-    desc:"Le meilleur iPhone jamais construit. Écran 6.9\" ProMotion, zoom optique 5x, batterie record 29h, puce A19 Pro et finition titane premium."
-  }
-];
-
-const hpProducts = [
-  // OmniBook
-  {
-    id:"hp1", brand:"HP", name:"OmniBook Ultra Flip 14",
-    price:"$1 399", badge:"new", stars:5, cat:"omnibook",
-    specs:"Intel Core Ultra 7 · OLED 2.8K · 32Go · 1To SSD · 2-en-1",
-    img:"images/hp/omnibook-ultra-flip.jpg",
-    desc:"Le meilleur laptop HP 2025. Écran OLED 2.8K, processeur Intel Core Ultra 7, design 2-en-1 ultra-premium avec stylet inclus."
-  },
-  {
-    id:"hp2", brand:"HP", name:"OmniBook X 14",
-    price:"$1 099", badge:"new", stars:5, cat:"omnibook",
-    specs:"Snapdragon X Plus · 16Go · 512Go SSD · Copilot+ PC · 26h",
-    img:"images/hp/omnibook-x14.jpg",
-    desc:"Autonomie record de 26 heures. Copilot+ PC avec IA intégrée, processeur Snapdragon X Plus, léger et ultra-performant."
-  },
-  {
-    id:"hp3", brand:"HP", name:"OmniBook 7 14\"",
-    price:"$799", badge:null, stars:4, cat:"omnibook",
-    specs:"Intel Core Ultra 5 · 16Go · 512Go SSD · OLED · 14\"",
-    img:"images/hp/omnibook-7.jpg",
-    desc:"Successeur du HP Envy. Écran OLED vibrant, performance Intel de dernière génération, finition premium à prix accessible."
-  },
-  // EliteBook
-  {
-    id:"hp4", brand:"HP", name:"EliteBook X G1a 14",
-    price:"$1 299", badge:"new", stars:5, cat:"elitebook",
-    specs:"AMD Ryzen AI · 32Go · 1To SSD · Sécurité entreprise · AI",
-    img:"images/hp/elitebook-x-g1a.jpg",
-    desc:"Le laptop pro 2025 par excellence. Processeur AMD Ryzen AI, sécurité biométrique avancée, autonomie longue durée pour les professionnels."
-  },
-  {
-    id:"hp5", brand:"HP", name:"EliteBook 840 G11",
-    price:"$999", badge:null, stars:4, cat:"elitebook",
-    specs:"Intel Core Ultra 5 · 16Go · 512Go SSD · 14\" IPS · Léger",
-    img:"images/hp/elitebook-840-g11.jpg",
-    desc:"Polyvalent et fiable pour les pros en déplacement. Sécurité HP Wolf, chassis aluminium résistant, écran anti-reflets 400 nits."
-  },
-  {
-    id:"hp6", brand:"HP", name:"Elite Dragonfly G4",
-    price:"$1 599", badge:"hot", stars:5, cat:"elitebook",
-    specs:"Intel Core Ultra 7 · 32Go · 1To · 13.5\" OLED · 990g",
-    img:"images/hp/elite-dragonfly-g4.jpg",
-    desc:"Le laptop pro le plus léger d'HP — 990g seulement. Écran OLED 13.5\", autonomie 24h, la référence pour les cadres et consultants."
-  },
-  // OMEN Gaming
-  {
-    id:"hp7", brand:"HP", name:"OMEN 16 RTX 4060",
-    price:"$1 399", badge:"hot", stars:5, cat:"omen",
-    specs:"Intel i7-13700H · RTX 4060 · 16Go · 512Go SSD · 165Hz",
-    img:"images/hp/omen-16.jpg",
-    desc:"Gaming haute performance : RTX 4060, écran 165Hz QHD, refroidissement OMEN Tempest amélioré. Domine tous les jeux AAA en ultra."
-  },
-  {
-    id:"hp8", brand:"HP", name:"OMEN 16 RTX 4070",
-    price:"$1 799", badge:"new", stars:5, cat:"omen",
-    specs:"Intel i9-13900HX · RTX 4070 · 32Go · 1To SSD · 240Hz",
-    img:"images/hp/omen-16-rtx4070.jpg",
-    desc:"Pour les joueurs exigeants. RTX 4070, écran 240Hz Full HD, i9 de 13ème génération — zéro compromis sur les performances."
-  },
-  // Victus
-  {
-    id:"hp9", brand:"HP", name:"Victus 15 RTX 3050",
-    price:"$699", badge:"promo", stars:4, cat:"victus",
-    specs:"AMD Ryzen 5 · RTX 3050 · 8Go · 256Go SSD · 144Hz",
-    img:"images/hp/victus-15.jpg",
-    desc:"Le gaming accessible. RTX 3050, écran 144Hz, design gaming sans se ruiner. Idéal pour débuter dans le gaming ou les étudiants."
-  },
-  {
-    id:"hp10", brand:"HP", name:"Victus 16 RTX 4050",
-    price:"$899", badge:null, stars:4, cat:"victus",
-    specs:"Intel Core i5 · RTX 4050 · 16Go · 512Go SSD · 144Hz",
-    img:"images/hp/victus-16.jpg",
-    desc:"Le sweet-spot gaming 2025. RTX 4050 Ada Lovelace, 16Go de RAM, écran 144Hz — excellent rapport qualité/prix pour le gaming."
-  },
-  // ZBook
-  {
-    id:"hp11", brand:"HP", name:"ZBook Studio G10",
-    price:"$2 199", badge:null, stars:5, cat:"zbook",
-    specs:"Intel Xeon W · RTX 4000 Ada · 64Go ECC · 2To SSD",
-    img:"images/hp/zbook-studio-g10.jpg",
-    desc:"Station de travail mobile certifiée ISV. Pour architectes, ingénieurs et créatifs pro. RTX 4000 Ada, 64Go ECC, fiabilité absolue."
-  },
-  {
-    id:"hp12", brand:"HP", name:"ZBook Firefly 14 G10",
-    price:"$1 799", badge:null, stars:4, cat:"zbook",
-    specs:"Intel Core Ultra 7 · RTX A500 · 32Go · 1To · Léger",
-    img:"images/hp/zbook-firefly-g10.jpg",
-    desc:"Workstation mobile légère pour professionnels en déplacement. Graphique RTX A500, certifiée pour AutoCAD, Revit et SolidWorks."
-  }
-];
-
-const macbooks = [
-  {
-    id:"m1", brand:"Apple", name:"MacBook Air 13\" M4",
-    price:"$1 099", badge:"new", stars:5,
-    specs:"M4 · 16Go · 256Go SSD · 13.6\" · 24h · Mars 2025",
-    img:"images/mac/macbook-air-m4-13.jpg",
-    desc:"Le MacBook le plus populaire 2025. Puce M4, 16Go de RAM de série, 24h d'autonomie, Silent — zéro ventilateur. Ultra-léger et ultra-rapide."
-  },
-  {
-    id:"m2", brand:"Apple", name:"MacBook Air 15\" M4",
-    price:"$1 299", badge:"new", stars:5,
-    specs:"M4 · 16Go · 512Go SSD · 15.3\" · 24h · Mars 2025",
-    img:"images/mac/macbook-air-m4-15.jpg",
-    desc:"Grand écran 15.3\" Liquid Retina, M4, 16Go RAM, silence total. Parfait pour créatifs et professionnels voulant productivité sans compromis."
-  },
-  {
-    id:"m3", brand:"Apple", name:"MacBook Pro 14\" M5",
-    price:"$1 599", badge:"new", stars:5,
-    specs:"M5 · 16Go · 512Go SSD · 14.2\" XDR · Oct. 2025",
-    img:"images/mac/macbook-pro-m5-14.jpg",
-    desc:"MacBook Pro le plus abordable avec puce M5 (oct. 2025). Écran Liquid Retina XDR, performances AI boostées, design Space Black ou argent."
-  },
-  {
-    id:"m4", brand:"Apple", name:"MacBook Pro 14\" M5 Pro",
-    price:"$2 199", badge:"new", stars:5,
-    specs:"M5 Pro · 24Go · 512Go SSD · 14.2\" XDR · Mars 2026",
-    img:"images/mac/macbook-pro-m5-pro-14.jpg",
-    desc:"Puce M5 Pro avec 14-core CPU. Conçu pour l'IA, la vidéo 8K et les workflows professionnels les plus exigeants. Thunderbolt 4 & HDMI."
-  },
-  {
-    id:"m5", brand:"Apple", name:"MacBook Pro 16\" M5 Pro",
-    price:"$2 699", badge:"new", stars:5,
-    specs:"M5 Pro · 24Go · 512Go SSD · 16.2\" XDR · Mars 2026",
-    img:"images/mac/macbook-pro-m5-pro-16.jpg",
-    desc:"Grand écran 16.2\" XDR, M5 Pro, haut-parleurs 6 drivers. La machine ultime pour les créatifs pro — montage vidéo, 3D, musique."
-  },
-  {
-    id:"m6", brand:"Apple", name:"MacBook Pro 16\" M5 Max",
-    price:"$3 899", badge:"hot", stars:5,
-    specs:"M5 Max · 48Go · 1To SSD · 16.2\" XDR · Mars 2026",
-    img:"images/mac/macbook-pro-m5-max-16.jpg",
-    desc:"Le sommet absolu de la gamme MacBook Pro. M5 Max, 48Go unified memory, 1To SSD, GPU 40-core. Aucune machine portable ne lui résiste."
-  }
-];
-
-// ════════════════════════════════════════
-// RENDER
-// ════════════════════════════════════════
-
-let cartItems = [];
-
-function renderCard(p) {
-  const badgeHtml = p.badge ? `<span class="badge badge-${p.badge}">${
-    p.badge==='new'?'Nouveau':p.badge==='promo'?'Promo':'🔥 Hot'
-  }</span>` : '';
-  const stars = '★'.repeat(p.stars)+'☆'.repeat(5-p.stars);
-  return `
-    <div class="product-card" onclick="openModal('${p.id}')">
-      <div class="product-img-wrap">
-        <img src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-        <div class="emoji-img" style="display:none">${p.brand==='Apple'&&p.name.includes('iPhone')?'📱':p.brand==='Apple'?'🍎':'💻'}</div>
-        ${badgeHtml}
-      </div>
-      <div class="product-info">
-        <div class="product-brand">${p.brand}</div>
-        <div class="product-name">${p.name}</div>
-        <div class="product-specs">${p.specs}</div>
-        <div class="stars">${stars}</div>
-        <div class="price-row">
-          <div><span class="price">${p.price}</span>${p.oldPrice?`<span class="price-old">${p.oldPrice}</span>`:''}</div>
-          <button class="add-btn" title="Commander" onclick="event.stopPropagation();quickOrder('${p.id}')">+</button>
-        </div>
-      </div>
-    </div>`;
-}
-
-function renderSection(arr, gridId) {
-  document.getElementById(gridId).innerHTML = arr.map(renderCard).join('');
-}
-
-function filterHP(cat, el) {
-  document.querySelectorAll('.subtab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-  const filtered = cat==='all' ? hpProducts : hpProducts.filter(p=>p.cat===cat);
-  document.getElementById('hpGrid').innerHTML = filtered.map(renderCard).join('');
-}
-
-// ════════════════════════════════════════
-// MODAL
-// ════════════════════════════════════════
-
-const allProducts = [...iphones, ...hpProducts, ...macbooks];
-
-function openModal(id) {
-  const p = allProducts.find(x=>x.id===id);
-  document.getElementById('modal-img').src = p.img;
-  document.getElementById('modal-brand').textContent = p.brand;
-  document.getElementById('modal-title').textContent = p.name;
-  document.getElementById('modal-specs').textContent = p.specs + ' — ' + p.desc;
-  document.getElementById('modal-price').textContent = p.price;
-  const msg = encodeURIComponent(`Bonjour 👋, je souhaite commander :\n\n📦 ${p.brand} ${p.name}\n🔧 ${p.specs}\n💵 Prix : ${p.price}\n\nMerci de me confirmer la disponibilité.`);
-  document.getElementById('modal-wa').href = `https://wa.me/243982686451?text=${msg}`;
-  document.getElementById('modal').classList.add('active');
-}
-
-function closeModal() {
-  document.getElementById('modal').classList.remove('active');
-}
-
-function quickOrder(id) {
-  const p = allProducts.find(x=>x.id===id);
-  cartItems.push(p);
-  document.getElementById('cartCount').textContent = cartItems.length;
-  showToast(`✓ ${p.name} ajouté !`);
-  const msg = encodeURIComponent(`Bonjour 👋, je souhaite commander :\n\n📦 ${p.brand} ${p.name}\n🔧 ${p.specs}\n💵 Prix : ${p.price}\n\nMerci !`);
-  window.open(`https://wa.me/243982686451?text=${msg}`, '_blank');
-}
-
-function toggleCart() {
-  if(cartItems.length===0){showToast('🛒 Votre panier est vide');return;}
-  const list = cartItems.map(p=>`• ${p.name} — ${p.price}`).join('\n');
-  const msg = encodeURIComponent(`Bonjour 👋, voici ma commande :\n\n${list}\n\nMerci de confirmer !`);
-  window.open(`https://wa.me/243982686451?text=${msg}`, '_blank');
-}
-
-// ════════════════════════════════════════
-// UTILS
-// ════════════════════════════════════════
-
-function scrollTo(id) {
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
-}
-
-function showToast(msg) {
-  const old = document.querySelector('.toast');
-  if(old) old.remove();
-  const t = document.createElement('div');
-  t.className = 'toast'; t.textContent = msg;
-  document.body.appendChild(t);
-  setTimeout(()=>t.remove(), 3000);
-}
-
-// ════════════════════════════════════════
-// INIT
-// ════════════════════════════════════════
-renderSection(iphones, 'iphoneGrid');
-renderSection(hpProducts, 'hpGrid');
-renderSection(macbooks, 'macGrid');
-</script>
 </body>
 </html>
